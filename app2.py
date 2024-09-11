@@ -11,6 +11,11 @@ CORS(app)
 tokenizer = BertTokenizer.from_pretrained("HooshvareLab/bert-fa-base-uncased-sentiment-snappfood")
 model = BertForSequenceClassification.from_pretrained("HooshvareLab/bert-fa-base-uncased-sentiment-snappfood")
 
+@app.route('/', methods=['GET'])
+def index():
+    return "Welcome to the Sentiment Analysis API"
+
+
 @app.route('/analyze-sentiment', methods=['POST'])
 def analyze_sentiment():
     try:
